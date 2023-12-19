@@ -6,6 +6,8 @@ authors = ["João Aguiar <macdjoao@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+Django = "^5.0"
+djangorestframework = "^3.14.0"
 
 [tool.poetry.dev-dependencies]
 
