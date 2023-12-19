@@ -8,6 +8,7 @@ authors = ["João Aguiar <macdjoao@gmail.com>"]
 python = "^3.10"
 Django = "^5.0"
 djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.3.1"
 
 [tool.poetry.dev-dependencies]
 
