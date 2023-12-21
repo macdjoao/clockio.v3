@@ -1,3 +1,4 @@
+from datetime import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -7,18 +8,11 @@ class Clock(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='created_clocks')
-
     updated_at = models.DateTimeField(auto_now=True)
     updated_by = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='updated_clocks')
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    check_in_date = models.DateField()
-    check_out_date = models.DateField()
-
-    check_in_hour = models.TimeField()
-    check_out_hour = models.TimeField()
+        User, on_delete=models.CASCADE, related_name='updated_clocks', null=True)
+    check_in = models.DateTimeField()
+    check_out = models.DateTimeField()
 
     class Meta:
         ordering = ['-id']
@@ -26,4 +20,4 @@ class Clock(models.Model):
         verbose_name_plural = "Clocks"
 
     def __str__(self):
-        return f"{self.user.username} - {self.check_in_date}/{self.check_in_hour.strftime('%H:%M')} - {self.check_out_date}/{self.check_out_hour.strftime('%H:%M')}"
+        return f"{self.created_by.username} - {self.check_in} - {self.check_out}"
