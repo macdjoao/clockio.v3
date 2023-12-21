@@ -75,7 +75,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Sao_Paulo'
+# SOURCE: https://apiux.com/2013/03/20/5-laws-api-dates-and-times/ ; https://youtu.be/aAUopejsqIc?si=mt9h_NJBsemhFhuP
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
