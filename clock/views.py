@@ -7,11 +7,12 @@ from django.core.exceptions import ObjectDoesNotExist
 
 from clock import models
 from clock.serializers import CreateClockSerializer, ReadClockSerializer
+from users.permissions import IsEmployeePermission
 
 
 class Clock(APIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsEmployeePermission]
 
     def get(self, request, *args, **kwargs):
         try:
